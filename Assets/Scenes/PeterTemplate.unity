@@ -314,11 +314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6915280911977938604, guid: a91ab2655714742649a56e3047397591, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.02
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6915280911977938604, guid: a91ab2655714742649a56e3047397591, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.85
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 6915280911977938604, guid: a91ab2655714742649a56e3047397591, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -476,32 +476,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3533604043914943357, guid: a91ab2655714742649a56e3047397591, type: 3}
   m_PrefabInstance: {fileID: 1664732597}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1252360421
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252360418}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &1293016385
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1252360418}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &1613697812
