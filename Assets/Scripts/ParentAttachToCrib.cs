@@ -8,6 +8,8 @@ public class ParentAttachToCrib : MonoBehaviour
     private Vector3 originPosition;
     private BoxCollider2D parentCollider;
 
+    private AudioSource dropAudio;
+
     public GameObject parentPrefab;
     
     private void Awake() 
@@ -20,6 +22,8 @@ public class ParentAttachToCrib : MonoBehaviour
     void Start()
     {
         parentCollider = GetComponent<BoxCollider2D>();
+
+        dropAudio = GetComponent<AudioSource>();
     }
 
     private void OnMouseUp() 
@@ -34,14 +38,14 @@ public class ParentAttachToCrib : MonoBehaviour
                 //Instantiate(parentPrefab, originPosition, Quaternion.identity);
                 // TODO WORK in progress on instantiation, but currently ruins drag and drop
 
-
                 // attach to crib
                 Vector3 pos = babyCrib.gameObject.GetComponent<ParentsOfChildLogic>().attachParent(gameObject);
 
                 transform.position = new Vector3(pos.x, pos.y, 8);
                 transform.SetParent(babyCrib.transform);
 
-                
+                dropAudio.Play();
+
                 ParentSpawner.ParentSpawnerObject.GenerateParent(originPosition.x);
                 return;
             }

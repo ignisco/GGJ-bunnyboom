@@ -11,12 +11,14 @@ public class ParentsOfChildLogic : MonoBehaviour
     public float ascensionSpeed = 0.1f;
 
     private Animator anim;
+    private AudioSource audio;
 
     public GameObject scorePrefab;
 
 
     private void FixedUpdate()
     {
+
         if (anim.enabled == true)
         {
             // ascend
@@ -38,6 +40,8 @@ public class ParentsOfChildLogic : MonoBehaviour
         parentSpots = new List<Transform>();
         parentSpots.Add(transform.Find("PhotoFrame Left"));
         parentSpots.Add(transform.Find("PhotoFrame Right"));
+
+        audio = GetComponent<AudioSource>();
     }
 
     public Vector3 attachParent(GameObject parent)
@@ -59,8 +63,12 @@ public class ParentsOfChildLogic : MonoBehaviour
             //Show heart
             transform.Find("Heart").gameObject.SetActive(true);
 
+            audio.Play();
+
             //Start co-routine for deletion after some time
             StartCoroutine(DeletionAfterFlying());
+
+            StartCoroutine(StartFade(audio, 3, 0));
 
             StartCoroutine(DisplayScore());
             
@@ -99,7 +107,7 @@ public class ParentsOfChildLogic : MonoBehaviour
             }
         }
 
-        return 100 * (int) (Mathf.Pow(faceMatchCount, 2f) + Mathf.Pow(headMatchCount, 2f) + Mathf.Pow(bodyMatchCount, 2f));
+        return 100 * (int) (Mathf.Pow(faceMatchCount, 2f) + Mathf.Pow(headMatchCount, 2f) + Mathf.Pow(bodyMatchCount, 2f)) + faceMatchCount + headMatchCount + bodyMatchCount;
     }
 
     IEnumerator DeletionAfterFlying()
@@ -123,6 +131,18 @@ public class ParentsOfChildLogic : MonoBehaviour
 
         Destroy(scoreObject);
 
+    }
+    public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = audioSource.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
     }
 
 }
