@@ -107,7 +107,7 @@ public class ParentsOfChildLogic : MonoBehaviour
             }
         }
 
-        return 100 * (int) (Mathf.Pow(faceMatchCount, 2f) + Mathf.Pow(headMatchCount, 2f) + Mathf.Pow(bodyMatchCount, 2f)) + faceMatchCount + headMatchCount + bodyMatchCount;
+        return 100 * (int) (Mathf.Pow(faceMatchCount, 2f) + Mathf.Pow(headMatchCount, 2f) + Mathf.Pow(bodyMatchCount, 2f) + faceMatchCount + headMatchCount + bodyMatchCount);
     }
 
     IEnumerator DeletionAfterFlying()
