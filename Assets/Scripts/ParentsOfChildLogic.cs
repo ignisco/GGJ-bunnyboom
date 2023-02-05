@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CribImageLogic : MonoBehaviour
+public class ParentsOfChildLogic : MonoBehaviour
 {
     private List<GameObject> attachedParents;
     public int numberOfParents = 2;
@@ -49,9 +49,14 @@ public class CribImageLogic : MonoBehaviour
 
             Debug.Log("Setting the animation");
 
+            Debug.Log(calculateScore());
+
             //Initiate rocket animation
             Debug.Log(anim.GetBool("Ascension"));
             anim.enabled = true;
+
+            //Show heart
+            transform.Find("Heart").gameObject.SetActive(true);
 
             //Start co-routine for deletion after some time
             StartCoroutine(DeletionAfterFlying());
@@ -64,6 +69,36 @@ public class CribImageLogic : MonoBehaviour
         
     }
 
+    public int calculateScore()
+    {
+
+        Attributed childAttributes = gameObject.GetComponent<Attributed>();
+
+        int faceMatchCount = 0;
+        int headMatchCount = 0;
+        int bodyMatchCount = 0;
+
+        foreach (GameObject parent in attachedParents) {
+            Attributed parentAttribute = parent.GetComponent<Attributed>();
+            
+            if (childAttributes.face == parentAttribute.face)
+            {
+                faceMatchCount++;
+            }
+
+            if (childAttributes.head == parentAttribute.head)
+            {
+                headMatchCount++;
+            }
+
+            if (childAttributes.body == parentAttribute.body)
+            {
+                bodyMatchCount++;
+            }
+        }
+
+        return 100 * (int) (Mathf.Pow(faceMatchCount, 2f) + Mathf.Pow(headMatchCount, 2f) + Mathf.Pow(bodyMatchCount, 2f));
+    }
 
     IEnumerator DeletionAfterFlying()
     {

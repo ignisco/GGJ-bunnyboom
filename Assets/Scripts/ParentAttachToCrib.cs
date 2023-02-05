@@ -36,11 +36,12 @@ public class ParentAttachToCrib : MonoBehaviour
 
 
                 // attach to crib
-                Vector3 pos = babyCrib.gameObject.GetComponent<CribImageLogic>().attachParent(gameObject);
+                Vector3 pos = babyCrib.gameObject.GetComponent<ParentsOfChildLogic>().attachParent(gameObject);
 
-                transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+                transform.position = new Vector3(pos.x, pos.y, 8);
                 transform.SetParent(babyCrib.transform);
 
+                
                 ParentSpawner.ParentSpawnerObject.GenerateParent(originPosition.x);
                 return;
             }
