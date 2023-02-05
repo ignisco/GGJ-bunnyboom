@@ -14,6 +14,10 @@ public class GameOverTrigger : MonoBehaviour
             FindObjectOfType<BabySpawner>().enabled = false;
             gameOverText.SetActive(true);
 
+            // disable timer
+
+            FindObjectOfType<Timer>().enabled = false;
+
             // disable all baby movement
 
             foreach (var script in FindObjectsOfType<BabyMovement>())
