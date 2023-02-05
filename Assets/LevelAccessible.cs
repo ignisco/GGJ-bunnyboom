@@ -14,8 +14,6 @@ public class LevelAccessible : MonoBehaviour
     void Start()
     {
 
-        Debug.Log(GameManager.gameManager.highScores[0]);
-
         if (GameManager.gameManager.highScores[levelToCheck - 1] >= scoreTreshold)
         {
             button.SetActive(true);

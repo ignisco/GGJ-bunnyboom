@@ -5,6 +5,7 @@ using TMPro;
 
 public class ParentsOfChildLogic : MonoBehaviour
 {
+
     private List<GameObject> attachedParents;
     public int numberOfParents = 2;
     private List<Transform> parentSpots;
@@ -14,6 +15,7 @@ public class ParentsOfChildLogic : MonoBehaviour
     private AudioSource audio;
 
     public GameObject scorePrefab;
+    Timer timer;
 
 
     private void FixedUpdate()
@@ -31,6 +33,7 @@ public class ParentsOfChildLogic : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        timer = FindObjectOfType<Timer>();
 
         // Adding its own collider to the parent's list of colliders
         BabySpawner.babyCribList.Add(GetComponent<BoxCollider2D>());
@@ -128,10 +131,14 @@ public class ParentsOfChildLogic : MonoBehaviour
         // Add score to Game Manager
         GameManager.gameManager.AddScore(calculateScore());
 
+        // Add time to timer
+        float timerIncrease = calculateScore() / 100;
+        timer.time += (int)(timerIncrease / (1 + (GameManager.gameManager.tempScore / 1000) * 0.1f));
+
         // Display score
         scoreObject.GetComponent<TextMeshPro>().text = calculateScore().ToString();
 
-        // Doesn't really return, just weird syntax for waiting 5 seconds
+        // Doesn't really return, just weird syntax for waiting 1 second
         yield return new WaitForSeconds(1);
 
         Destroy(scoreObject);

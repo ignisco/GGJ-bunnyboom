@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public int[] highScores  = new int[3] {0, 0, 0};
-    public int activeScorePointer = 20;
+    public int activeScorePointer = 0;
     public int tempScore;
 
     public static GameManager gameManager;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         activeScorePointer = level;
         tempScore = 0; // resetting temporary score counter
-        SceneManager.LoadScene("Play");
+        SceneManager.LoadScene(level + 1); // because level 0 is menu
     }
 
     public void AddScore(int points)
