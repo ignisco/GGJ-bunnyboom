@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 988187193703315207}
   - component: {fileID: 5105466933802915668}
   - component: {fileID: 1077293795691893095}
+  - component: {fileID: 5593039624640941598}
   m_Layer: 0
   m_Name: ScorePopupText
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 5105466933802915668}
   m_maskType: 0
+--- !u!114 &5593039624640941598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7071001831481874240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a9e9b1b5c15194186da7a31cdb914d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
