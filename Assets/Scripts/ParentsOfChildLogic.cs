@@ -50,11 +50,11 @@ public class ParentsOfChildLogic : MonoBehaviour
             //Remove itself from the crib list so no other images can be attached
             BabySpawner.babyCribList.Remove(GetComponent<BoxCollider2D>());
 
-            Debug.Log("Setting the animation");
-
-            //Initiate rocket animation
-            Debug.Log(anim.GetBool("Ascension"));
+            //Initiate rocket animation (by enabling animator :P)
             anim.enabled = true;
+
+            // Disable boxcollider so it can't trigger game over
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
             //Show heart
             transform.Find("Heart").gameObject.SetActive(true);
