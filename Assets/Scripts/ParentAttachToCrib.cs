@@ -8,6 +8,8 @@ public class ParentAttachToCrib : MonoBehaviour
     public static List<BoxCollider2D> babyCribList;
     private Vector3 originPosition;
     private BoxCollider2D parentCollider;
+
+    public GameObject parentPrefab;
     
     private void Awake() 
     {
@@ -22,12 +24,6 @@ public class ParentAttachToCrib : MonoBehaviour
         parentCollider = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseUp() 
     {
         // check if inside a baby's crib
@@ -36,6 +32,11 @@ public class ParentAttachToCrib : MonoBehaviour
         {
             if (babyCrib.IsTouching(parentCollider))
             {
+                // spawn a new at the origin position;
+                //Instantiate(parentPrefab, originPosition, Quaternion.identity);
+                // TODO WORK in progress on instantiation, but currently ruins drag and drop
+
+
                 // attach to crib
                 Vector3 pos = babyCrib.gameObject.GetComponent<CribImageLogic>().attachParent(gameObject);
 
@@ -43,6 +44,7 @@ public class ParentAttachToCrib : MonoBehaviour
                 //increase the z-value (move back) so new dragged images will go over --REMOVED
                 //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 transform.SetParent(babyCrib.transform);
+
                 return;
             }
         }

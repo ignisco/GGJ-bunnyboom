@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rocket
+  m_Name: Rocket 1
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -583324653, guid: 19b5b112dd7b74a3fabb9ca250fabb10, type: 3}
-    - time: 0.083333336
+    - time: 0.016666668
       value: {fileID: 961465354, guid: 19b5b112dd7b74a3fabb9ca250fabb10, type: 3}
-    - time: 0.16666667
+    - time: 0.033333335
       value: {fileID: -1537294575, guid: 19b5b112dd7b74a3fabb9ca250fabb10, type: 3}
     attribute: m_Sprite
     path: 
@@ -52,7 +52,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.18333334
+    m_StopTime: 0.050000004
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

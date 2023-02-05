@@ -123,32 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &64268612 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3533604043914943357, guid: f05e18ef8cdd52d4b9c710d269091217, type: 3}
-  m_PrefabInstance: {fileID: 2141752279}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &64268620
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64268612}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &174787290 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7941189799111987301, guid: 6ffdac5d8c16745e1b7d766dabd872de, type: 3}
@@ -1530,32 +1504,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffdac5d8c16745e1b7d766dabd872de, type: 3}
---- !u!1 &1520895673 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3533604043914943357, guid: f05e18ef8cdd52d4b9c710d269091217, type: 3}
-  m_PrefabInstance: {fileID: 518170592}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1520895674
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520895673}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &1617416042
 PrefabInstance:
   m_ObjectHideFlags: 0

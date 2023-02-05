@@ -7,10 +7,26 @@ public class CribImageLogic : MonoBehaviour
     private List<GameObject> attachedParents;
     public int numberOfParents = 2;
     private List<Transform> parentSpots;
+    public float ascensionSpeed = 0.1f;
+
+    private Animator anim;
+
+
+    private void FixedUpdate()
+    {
+        if (anim.enabled == true)
+        {
+            // ascend
+            transform.position = new Vector3(transform.position.x,
+                transform.position.y + ascensionSpeed, transform.position.z);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         // Adding its own collider to the parent's list of colliders
         ParentAttachToCrib.babyCribList.Add(GetComponent<BoxCollider2D>());
         attachedParents = new List<GameObject>();
@@ -25,15 +41,38 @@ public class CribImageLogic : MonoBehaviour
     {
         attachedParents.Add(parent);
 
-        // Removing itself from the crib list when it has N parents
+        // When it has got all its N parents
         if (attachedParents.Count >= numberOfParents)
         {
+            //Remove itself from the crib list so no other images can be attached
             ParentAttachToCrib.babyCribList.Remove(GetComponent<BoxCollider2D>());
+
+            Debug.Log("Setting the animation");
+
+            //Initiate rocket animation
+            Debug.Log(anim.GetBool("Ascension"));
+            anim.enabled = true;
+
+            //Start co-routine for deletion after some time
+            StartCoroutine(DeletionAfterFlying());
+            
+
         }
 
         Vector3 nextParentPos = parentSpots[attachedParents.Count - 1].position;
         return nextParentPos;
         
+    }
+
+
+    IEnumerator DeletionAfterFlying()
+    {
+
+        // Doesn't really return, just weird syntax for waiting 5 seconds
+        yield return new WaitForSeconds(5);
+
+        Destroy(gameObject);
+
     }
 
 }
