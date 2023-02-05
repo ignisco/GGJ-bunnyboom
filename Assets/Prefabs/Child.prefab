@@ -429,6 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfParents: 2
   ascensionSpeed: 0.1
+  scorePrefab: {fileID: 7071001831481874240, guid: 31e9dc4479801614ba14b30fa11f3058, type: 3}
 --- !u!114 &1228063519446395767
 MonoBehaviour:
   m_ObjectHideFlags: 0

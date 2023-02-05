@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ParentsOfChildLogic : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class ParentsOfChildLogic : MonoBehaviour
     public float ascensionSpeed = 0.1f;
 
     private Animator anim;
+
+    public GameObject scorePrefab;
 
 
     private void FixedUpdate()
@@ -49,8 +52,6 @@ public class ParentsOfChildLogic : MonoBehaviour
 
             Debug.Log("Setting the animation");
 
-            Debug.Log(calculateScore());
-
             //Initiate rocket animation
             Debug.Log(anim.GetBool("Ascension"));
             anim.enabled = true;
@@ -60,8 +61,9 @@ public class ParentsOfChildLogic : MonoBehaviour
 
             //Start co-routine for deletion after some time
             StartCoroutine(DeletionAfterFlying());
-            
 
+            StartCoroutine(DisplayScore());
+            
         }
 
         Vector3 nextParentPos = parentSpots[attachedParents.Count - 1].position;
@@ -107,6 +109,19 @@ public class ParentsOfChildLogic : MonoBehaviour
         yield return new WaitForSeconds(5);
 
         Destroy(gameObject);
+
+    }
+
+    IEnumerator DisplayScore()
+    {
+        GameObject scoreObject = Instantiate(scorePrefab, transform.position, Quaternion.identity);
+
+        scoreObject.GetComponent<TextMeshPro>().text = calculateScore().ToString();
+
+        // Doesn't really return, just weird syntax for waiting 5 seconds
+        yield return new WaitForSeconds(1);
+
+        Destroy(scoreObject);
 
     }
 
