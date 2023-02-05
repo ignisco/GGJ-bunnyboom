@@ -5,7 +5,6 @@ using UnityEngine;
 public class ParentAttachToCrib : MonoBehaviour
 {
 
-    public static List<BoxCollider2D> babyCribList;
     private Vector3 originPosition;
     private BoxCollider2D parentCollider;
 
@@ -15,7 +14,6 @@ public class ParentAttachToCrib : MonoBehaviour
     {
         // set origin position to be able to return if dropped outside of crib
         originPosition = transform.position;
-        babyCribList = new List<BoxCollider2D>();
     }
 
     // Start is called before the first frame update
@@ -28,7 +26,7 @@ public class ParentAttachToCrib : MonoBehaviour
     {
         // check if inside a baby's crib
         
-        foreach (var babyCrib in babyCribList)
+        foreach (var babyCrib in BabySpawner.babyCribList)
         {
             if (babyCrib.IsTouching(parentCollider))
             {
@@ -40,11 +38,10 @@ public class ParentAttachToCrib : MonoBehaviour
                 // attach to crib
                 Vector3 pos = babyCrib.gameObject.GetComponent<CribImageLogic>().attachParent(gameObject);
 
-                transform.position = pos;
-                //increase the z-value (move back) so new dragged images will go over --REMOVED
-                //transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                transform.position = new Vector3(pos.x, pos.y, transform.position.z);
                 transform.SetParent(babyCrib.transform);
 
+                ParentSpawner.ParentSpawnerObject.GenerateParent(originPosition.x);
                 return;
             }
         }

@@ -28,7 +28,7 @@ public class CribImageLogic : MonoBehaviour
         anim = GetComponent<Animator>();
 
         // Adding its own collider to the parent's list of colliders
-        ParentAttachToCrib.babyCribList.Add(GetComponent<BoxCollider2D>());
+        BabySpawner.babyCribList.Add(GetComponent<BoxCollider2D>());
         attachedParents = new List<GameObject>();
 
         //Adding transform of left and right photoframe as parent spots
@@ -45,7 +45,7 @@ public class CribImageLogic : MonoBehaviour
         if (attachedParents.Count >= numberOfParents)
         {
             //Remove itself from the crib list so no other images can be attached
-            ParentAttachToCrib.babyCribList.Remove(GetComponent<BoxCollider2D>());
+            BabySpawner.babyCribList.Remove(GetComponent<BoxCollider2D>());
 
             Debug.Log("Setting the animation");
 

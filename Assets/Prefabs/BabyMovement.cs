@@ -5,7 +5,7 @@ using UnityEngine;
 public class BabyMovement : MonoBehaviour
 {
 
-    public float speed = 0.1f;
+    public float speed;
 
     // Update is called once per frame
     private void FixedUpdate()
