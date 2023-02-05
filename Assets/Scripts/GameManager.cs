@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public int[] highScores;
-    public int activeScorePointer;
+    public int[] highScores  = new int[3] {0, 0, 0};
+    public int activeScorePointer = 20;
     public int tempScore;
 
     public static GameManager gameManager;
@@ -44,11 +44,12 @@ public class GameManager : MonoBehaviour
         {
             highScores[activeScorePointer] = tempScore;
         }
+
+        tempScore = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LoadMenu()
     {
-        
+        SceneManager.LoadScene("Menu");
     }
 }

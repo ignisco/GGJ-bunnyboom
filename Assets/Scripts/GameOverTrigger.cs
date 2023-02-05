@@ -31,6 +31,22 @@ public class GameOverTrigger : MonoBehaviour
                 script.enabled = false;
             }
 
+
+            // Add score to high score
+
+            GameManager.gameManager.FinalizeScore();
+
+            StartCoroutine(BackToMenu());
+
+
+
+
         }
+    }
+
+    IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(4);
+        GameManager.gameManager.LoadMenu();
     }
 }

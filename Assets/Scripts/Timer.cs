@@ -72,6 +72,18 @@ public class Timer : MonoBehaviour
                 script.enabled = false;
             }
 
+            // Add score to high score
+            GameManager.gameManager.FinalizeScore();
+
+
+            // Go back to menu
+
+            yield return new WaitForSeconds(4);
+
+
+            GameManager.gameManager.LoadMenu();
+
+
         }
 
     }

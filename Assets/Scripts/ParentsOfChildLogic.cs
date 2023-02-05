@@ -124,6 +124,11 @@ public class ParentsOfChildLogic : MonoBehaviour
     {
         GameObject scoreObject = Instantiate(scorePrefab, transform.position, Quaternion.identity);
 
+
+        // Add score to Game Manager
+        GameManager.gameManager.AddScore(calculateScore());
+
+        // Display score
         scoreObject.GetComponent<TextMeshPro>().text = calculateScore().ToString();
 
         // Doesn't really return, just weird syntax for waiting 5 seconds
